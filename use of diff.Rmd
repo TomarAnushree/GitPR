@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Red/green shaded lines indicate lines that were removed/added to the file. In RStudio, new files appearing in the working directory will be entirely green.
+
+Looking at git diff can be very useful when you want to know “what did I do since I last committed a change to this file?”. A common pattern after completing a segment of work is to use git diff to see what was changed overall, and then split the changes into logical commits that describe what was done.
+
+`For example, if four different files were modified to complete one logical change, add them all in the same commit. 
+If half the files changed were related to one topic and the other half related to another topic, add-and-commit 
+the two sets of files with separate commit messages describing the two distinct topics addressed.`
+
+```{r}
+plot(cars)
+```
+
+git log
+Console command: git log
+
+To see a log of all commits and commit messages, use git log. In the RStudio interface, click on the “History” icon in the “Git” tab. This will pop up a window that shows the commit history:
+
+
+git checkout
+When running git status, if there are files in the working directory that have changes, Git will provide the helpful message:
+
+use “git checkout – …” to discard changes in working directory git checkout -- <FILENAME> will discard changes in the working directory, so be very careful about using git checkout: you will lose all changes you have made to a file.
+
+git checkout is the basis for Git’s very powerful time-traveling features, allowing you to see what your code looks like in another commit that lies backwards, forwards, or even sideways in time. git checkout allows you to create “branches”, which we will discuss in a future post.
+
+'For now, just remember that checking-out a file that has been changed in your working directory will destroy those changes.
+
+In RStudio, there is no interface to git checkout- probably for good reason. It exposes a lot of functionality and can quickly lead a novice down a delicate path of learning opportunities.'
+
+For now, just remember that checking-out a file that has been changed in your working directory will destroy those changes.
+
+In RStudio, there is no interface to git checkout- probably for good reason. It exposes a lot of functionality
+and can quickly lead a novice down a delicate path of learning opportunities.
+
+Now that you have git set up, create a project and play with the above commands. Create files, add them, commit the changes, diff the changes, remove them. See what happens when you attempt to git reset -- <FILENAME> after a git rm <FILENAME>, or see what git checkout <FILENAME> does when you have made changes to that file (hint: it destroys them!).
+
+Also look at how RStudio handles these operations, likely intentionally keeping the novice safely within a subset of functionality, while also providing convenient GUI visualizations of diffs, histories, staged-state, and status.
+
+Committing changes should become a regular part of your workflow, and understanding this essential commands will lay the foundations for the more complex workflows we’ll discuss in a future post.
+
